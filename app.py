@@ -1,6 +1,6 @@
 import streamlit as st
 import pandas as pd
-
+import openpyxl
 st.set_page_config(
     page_title="LISASTORE Dashboard (Beginner)",
     layout="wide"
@@ -13,11 +13,11 @@ st.title("📊 Ứng dụng phân tích chuỗi cửa hàng mỹ phẩm LISASTOR
 # -----------------------------
 @st.cache_data
 def load_data(excel_file: str):
-    df_store = pd.read_excel(excel_file, sheet_name="CuaHang")
-    df_nv = pd.read_excel(excel_file, sheet_name="NhanVien")
-    df_kh = pd.read_excel(excel_file, sheet_name="KhachHang")
-    df_sp = pd.read_excel(excel_file, sheet_name="SanPham")
-    df_dh = pd.read_excel(excel_file, sheet_name="DonHang")
+    df_store = pd.read_excel(excel_file, sheet_name="CuaHang",engine=openpyxl)
+    df_nv = pd.read_excel(excel_file, sheet_name="NhanVien",engine=openpyxl)
+    df_kh = pd.read_excel(excel_file, sheet_name="KhachHang",engine=openpyxl)
+    df_sp = pd.read_excel(excel_file, sheet_name="SanPham",engine=openpyxl)
+    df_dh = pd.read_excel(excel_file, sheet_name="DonHang",engine=openpyxl)
 
     # Chuyển cột Ngày sang kiểu datetime
     if "Ngay" in df_dh.columns:
