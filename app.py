@@ -29,7 +29,7 @@ def load_data(excel_file: str):
 # -----------------------------
 # 2. LOAD FILE EXCEL
 # -----------------------------
-excel_file = "data_store_my_pham.xlsx"
+excel_file = "./data_store_my_pham.xlsx"
 
 try:
     df_store, df_nv, df_kh, df_sp, df_dh = load_data(excel_file)
